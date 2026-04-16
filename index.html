@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cyber Connections — fast internet, printing, scanning, and more at affordable rates." />
+  <title>Cyber Connections | Modern Cyber Café</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Preloader (hidden after page load) -->
+  <div id="preloader" class="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <span class="preloader__logo">Cyber Connections</span>
+      <div class="preloader__bar"><div class="preloader__fill"></div></div>
+      <p class="preloader__text">Connecting…</p>
+    </div>
+  </div>
+
+  <!-- Skip link for accessibility -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Site header & navigation -->
+  <header class="site-header" id="top">
+    <div class="container header__row">
+      <a href="#home" class="logo">Cyber<span>Connections</span></a>
+
+      <button type="button" class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <nav class="site-nav" id="siteNav" aria-label="Main">
+        <ul class="site-nav__list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#training">Our Training</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Dark mode toggle (bonus) -->
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Dark / Light mode">
+        <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">☀</span>
+        <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">☾</span>
+      </button>
+
+      <!-- WhatsApp toggle -->
+      <button type="button" class="whatsapp-toggle" id="whatsappToggle" aria-label="WhatsApp chat" title="Chat with us on WhatsApp">
+        <span class="whatsapp-toggle__icon" aria-hidden="true">💬</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- WhatsApp Chat Box (hidden by default) -->
+  <div class="whatsapp-box" id="whatsappBox" hidden>
+    <div class="whatsapp-box__header">
+      <h3>Chat with us!</h3>
+      <button type="button" class="whatsapp-box__close" id="whatsappClose" aria-label="Close chat">✕</button>
+    </div>
+    <div class="whatsapp-box__content">
+      <p>Hi! How can we help you today?</p>
+      <p><strong>Available times:</strong> Mon-Fri, 8AM-6PM</p>
+    </div>
+    <a href="https://wa.me/254705284699?text=Hello%20Cyber%20Connections!" target="_blank" rel="noopener noreferrer" class="whatsapp-box__link">
+      Open WhatsApp
+    </a>
+  </div>
+
+  <main id="main">
+    <!-- 1. Home / Hero -->
+    <section class="hero" id="home">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container hero__content">
+        <p class="hero__eyebrow fade-in">Welcome</p>
+        <h1 class="hero__title fade-in fade-in--delay-1">Cyber Connections</h1>
+        <p class="hero__tagline fade-in fade-in--delay-2">Fast Internet. Affordable Services. Your Digital Hub.</p>
+        <a href="#services" class="btn btn--primary hero__cta fade-in fade-in--delay-3">View Services</a>
+      </div>
+      <div class="hero__scroll-hint" aria-hidden="true">
+        <span>Scroll</span>
+        <span class="hero__chevron"></span>
+      </div>
+    </section>
+
+    <!-- 2. About -->
+    <section class="section about" id="about">
+      <div class="container">
+        <header class="section__header reveal--fade-down">
+          <h2 class="section__title">About Us</h2>
+          <p class="section__subtitle">Your neighborhood cyber café built for speed and comfort.</p>
+        </header>
+        <div class="about__grid">
+          <article class="about__card reveal--fade-left">
+            <h3>Our Mission</h3>
+            <p>We connect people to reliable internet and essential digital services—printing, scanning, typing—so students, professionals, and small businesses can get things done without breaking the bank.</p>
+          </article>
+          <article class="about__card reveal--fade-right">
+            <h3>What Makes Us Unique</h3>
+            <ul class="about__list">
+              <li><strong>Fast internet</strong> — fiber-backed browsing and downloads when you need them most.</li>
+              <li><strong>Fair pricing</strong> — transparent rates with no hidden fees.</li>
+              <li><strong>Great environment</strong> — clean workstations, helpful staff, and a calm space to focus.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Services -->
+    <section class="section services" id="services">
+      <div class="container">
+        <header class="section__header reveal--fade-down">
+          <h2 class="section__title">Services</h2>
+          <p class="section__subtitle">Everything you need under one roof.</p>
+        </header>
+        <div class="services__grid">
+          <article class="service-card reveal">
+            <div class="service-card__icon" aria-hidden="true"><i class="fas fa-wifi"></i></div>
+            <h3 class="service-card__title">Internet Browsing</h3>
+            <p class="service-card__text">High-speed browsing for research, email, applications, and entertainment.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-card__icon" aria-hidden="true"><i class="fas fa-print"></i></div>
+            <h3 class="service-card__title">Printing</h3>
+            <p class="service-card__text">Black &amp; white and color prints for documents, photos, and coursework.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-card__icon" aria-hidden="true"><i class="fas fa-camera"></i></div>
+            <h3 class="service-card__title">Scanning</h3>
+            <p class="service-card__text">Digitize papers to PDF or image files—perfect for records and submissions.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-card__icon" aria-hidden="true"><i class="fas fa-copy"></i></div>
+            <h3 class="service-card__title">Photocopying</h3>
+            <p class="service-card__text">Quick, crisp copies for forms, notes, and handouts.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-card__icon" aria-hidden="true"><i class="fas fa-keyboard"></i></div>
+            <h3 class="service-card__title">Typing Services</h3>
+            <p class="service-card__text">Professional typing and formatting for letters, CVs, and reports.</p>
+          </article>
+          <article class="service-card reveal">
+            <div lass="service-card__icon" aria-hidden="true">🚗</div>
+            <h3 class="service-card__title">NTSA Services</h3>
+            <p class="service-card__text">DL Renewal <br> Smart DL</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-card_icon" aria-hidden="true">🏫</div>
+            <h3 class="service-card__title">HELB services</h3>
+             <p class="service-card__text">Apply for HELB Loan <br>Apply for clearance Certificate</p>
+          </article>
+          
+          <article class="service-card reveal">
+
+          </article>
+          <article class="service-card reveal">
+
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Our Training -->
+    <section class="section training" id="training">
+      <div class="container">
+        <header class="section__header reveal--fade-down">
+          <h2 class="section__title">Our Training</h2>
+          <p class="section__subtitle">Build your digital skills with expert guidance.</p>
+        </header>
+        <div class="services__grid">
+          <article class="service-card reveal">
+            <div class="service-card__icon" aria-hidden="true">💻</div>
+            <h3 class="service-card__title">Basic Computer Skills</h3>
+            <p class="service-card__text">Learn essential computer operations, file management, and keyboard shortcuts for beginners.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-card__icon" aria-hidden="true">📝</div>
+            <h3 class="service-card__title">Microsoft Office</h3>
+            <p class="service-card__text">Master Word, Excel, and PowerPoint for professional documents and presentations.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-card__icon" aria-hidden="true">🌐</div>
+            <h3 class="service-card__title">Internet & Email</h3>
+            <p class="service-card__text">Navigate the web safely, manage email accounts, and use online tools effectively.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-card__icon" aria-hidden="true">📊</div>
+            <h3 class="service-card__title">Data Analysis</h3>
+            <p class="service-card__text">Learn spreadsheet formulas, pivot tables, and data visualization techniques.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-card__icon" aria-hidden="true">🔐</div>
+            <h3 class="service-card__title">Cybersecurity Basics</h3>
+            <p class="service-card__text">Understand online safety, strong passwords, and how to protect your digital identity.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-card__icon" aria-hidden="true">🎓</div>
+            <h3 class="service-card__title">Custom Courses</h3>
+            <p class="service-card__text">Tailored training programs to meet your specific learning goals and pace.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Pricing -->
+    <section class="section pricing" id="pricing">
+      <div class="container">
+        <header class="section__header reveal--fade-down">
+          <h2 class="section__title">Pricing</h2>
+          <p class="section__subtitle">Simple rates you can trust. (Sample prices — adjust for your location.)</p>
+        </header>
+        <div class="pricing__wrapper reveal">
+          <table class="pricing-table">
+            <caption class="visually-hidden">Service pricing</caption>
+            <thead>
+              <tr>
+                <th scope="col">Service</th>
+                <th scope="col">Rate</th>
+                <th scope="col">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Browsing</td>
+                <td>Ksh. 60 / hour</td>
+                <td>First 15 min prorated</td>
+              </tr>
+              <tr>
+                <td>Printing (B&amp;W)</td>
+                <td>Ksh. 10 / page</td>
+                <td>Standard letter size</td>
+              </tr>
+              <tr>
+                <td>Printing (Color)</td>
+                <td>Ksh. 20 / page</td>
+                <td>Photo quality available</td>
+              </tr>
+              <tr>
+                <td>Scanning</td>
+                <td>Ksh. 50/ document</td>
+                <td>Up to 10 pages</td>
+              </tr>
+              <tr>
+                <td>Photocopying</td>
+                <td>Ksh 5 / page</td>
+                <td>B&amp;W</td>
+              </tr>
+              <tr>
+                <td>Typing</td>
+                <td>Ksh 50 / page</td>
+                <td>Includes basic formatting</td>
+              </tr>
+              <tr>
+                <td>HELB loan Application</td>
+                <td>---</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>HELB loan Application</td>
+                <td>---</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>HELB loan Application</td>
+                <td>---</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>HELB loan Application</td>
+                <td>---</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>HELB loan Application</td>
+                <td>---</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>HELB loan Application</td>
+                <td>---</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>HELB loan Application</td>
+                <td>---</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>HELB loan Application/td>
+                <td>---</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>HELB loan Application/td>
+                <td>---</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>HELB loan Application/td>
+                <td>---</td>
+                <td>---</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Gallery -->
+    <section class="section gallery" id="gallery">
+      <div class="container">
+        <header class="section__header reveal--fade-down">
+          <h2 class="section__title">Gallery</h2>
+          <p class="section__subtitle">A look inside our space.</p>
+        </header>
+        <div class="gallery__grid">
+          <figure class="gallery__item reveal--fade-scale">
+            <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80" alt="Row of laptops on a desk" width="800" height="600" loading="lazy" />
+            <figcaption>Workstations</figcaption>
+          </figure>
+          <figure class="gallery__item reveal--fade-scale">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" alt="People collaborating at computers in an office" width="800" height="600" loading="lazy" />
+            <figcaption>Café interior</figcaption>
+          </figure>
+          <figure class="gallery__item reveal--fade-scale">
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80" alt="Laptop on desk with code on screen" width="800" height="600" loading="lazy" />
+            <figcaption>Computers</figcaption>
+          </figure>
+          <figure class="gallery__item reveal--fade-scale">
+            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80" alt="Modern open workspace with desks" width="800" height="600" loading="lazy" />
+            <figcaption>Open seating</figcaption>
+          </figure>
+          <figure class="gallery__item reveal--fade-scale">
+            <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=800&q=80" alt="Desktop computer setup with monitor" width="800" height="600" loading="lazy" />
+            <figcaption>PC stations</figcaption>
+          </figure>
+          <figure class="gallery__item reveal--fade-scale">
+            <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=800&q=80" alt="Bright modern office interior" width="800" height="600" loading="lazy" />
+            <figcaption>Environment</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Contact -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <header class ="section__header reveal--fade-down" id="animated-logo-text">
+          <h2 class="section__title">Contact</h2>
+          <p class="section__subtitle">Visit us or send a message—we will get back to you soon.</p>
+        </header>
+        <div class="contact__grid">
+          <div class="contact__info reveal--fade-left">
+            <h3 class="contact__info-title">Get in touch</h3>
+            <ul class="contact__list">
+              <li>
+                <span class="contact__label">Phone</span>
+                <a href="tel:+254705284699">+254 705 284 699</a>
+              </li>
+              <li>
+                <span class="contact__label">Email</span>
+                <a href="mailto:somay4359@gmail.com ">somay4359@gmail.com </a>
+              </li>
+              <li>
+                <span class="contact__label">Location</span>
+                <span>Kenya Builders, Nairobi City</span>
+              </li>
+            </ul>
+            <!-- Optional map: replace src with your Google Maps embed URL -->
+            <div class="contact__map">
+              <iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=36.89057439565659%2C-1.3206188639551948%2C36.89356774091721%2C-1.3190475064703997&amp;layer=mapnik" 
+              style="border: 1px solid black">
+            </iframe><br/>
+              <small><a href="https://www.openstreetmap.org/?#map=19/-1.319833/36.892071">View Larger Map</a></small>
+            </div>
+          </div>
+
+          <!-- Frontend-only form: validated in script.js -->
+          <form class="contact__form reveal--fade-right" id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="name">Name <span class="required">*</span></label>
+              <input type="text" id="name" name="name" autocomplete="name" required minlength="2" placeholder="Your name" />
+              <p class="form-error" id="nameError" role="alert" hidden></p>
+            </div>
+            <div class="form-group">
+              <label for="email">Email <span class="required">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" required placeholder="you@example.com" />
+              <p class="form-error" id="emailError" role="alert" hidden></p>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="How can we help?" />
+            </div>
+            <div class="form-group">
+              <label for="message">Message <span class="required">*</span></label>
+              <textarea id="message" name="message" rows="5" required minlength="10" placeholder="Your message…"></textarea>
+              <p class="form-error" id="messageError" role="alert" hidden></p>
+            </div>
+            <p class="form-success" id="formSuccess" role="status" hidden>Thanks! Your message looks good. and we shall respond as soon as possible</p>
+            <button type="submit" class="btn btn--primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 7. Footer -->
+  <footer class="site-footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="#home" class="logo logo--footer">Cyber<span>Connections</span></a>
+        <p>Fast internet and digital services for everyone.</p>
+      </div>
+      <div class="footer__links">
+        <h4 class="footer__heading">Quick links</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__social">
+        <h4 class="footer__heading">Follow us</h4>
+        <ul class="social-list">
+          <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+          <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">X / Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p>&copy; <span id="year"></span> Cyber Connections. All rights reserved. made by ERIKI SOFTWARE TECHNOLOGIES</p>
+        <a href="#home" class="footer__to-top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
