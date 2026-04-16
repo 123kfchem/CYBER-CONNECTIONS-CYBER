@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Cyber Connections — fast internet, printing, scanning, and more at affordable rates." />
   <title>Cyber Connections | Modern Cyber Café</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,6 +13,12 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Background Video -->
+  <video autoplay muted loop id="background-video">
+    <source src="background.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
   <!-- Preloader (hidden after page load) -->
   <div id="preloader" class="preloader" aria-hidden="true">
     <div class="preloader__inner">
@@ -445,7 +452,63 @@
       </div>
     </div>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function () {
+  emailjs.init("Nl5w6GX-dNijKGjN_"); 
+})();
+    const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  // Optional: basic validation check
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+
+  const formData = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    subject: document.getElementById("subject").value,
+    message: document.getElementById("message").value,
+  };
+
+  emailjs
+    .send("service_g39abnl", "template_fyq4iwr", formData)
+    .then(() => {
+      alert("Message sent successfully!");
+      form.reset();
+    })
+    .catch((error) => {
+      console.error("EmailJS Error:", error);
+      alert("Failed to send message. Try again.");
+    });
+});
+  </script>
+
+  <!-- Floating Chatbot -->
+  <div id="chatbot">
+    <button id="chatbot-toggle" aria-label="Open chat">
+      <i class="fas fa-comments"></i>
+    </button>
+    <div id="chat-window" class="chat-hidden">
+      <div class="chat-header">
+        <h3>Cyber Connections Assistant</h3>
+        <button id="chat-close" aria-label="Close chat">&times;</button>
+      </div>
+      <div id="chat-body" class="chat-body"></div>
+      <div class="chat-input-area">
+        <input type="text" id="chat-input" placeholder="Type your message..." />
+        <button id="chat-send" aria-label="Send message">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
+
 </body>
 </html>

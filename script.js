@@ -255,3 +255,173 @@
     });
   }
 })();
+
+/* ---------- Chatbot ---------- */
+var chatbot = document.getElementById("chatbot");
+var chatToggle = document.getElementById("chatbot-toggle");
+var chatWindow = document.getElementById("chat-window");
+var chatClose = document.getElementById("chat-close");
+var chatBody = document.getElementById("chat-body");
+var chatInput = document.getElementById("chat-input");
+var chatSend = document.getElementById("chat-send");
+
+// Toggle chat window
+function toggleChat() {
+  chatWindow.classList.toggle("chat-hidden");
+  if (!chatWindow.classList.contains("chat-hidden") && chatBody.children.length === 0) {
+    addMessage("Hi! I'm the Cyber Connections Assistant. How can I help you, services, training, or pricing?", "bot");
+  }
+}
+
+chatToggle.addEventListener("click", toggleChat);
+chatClose.addEventListener("click", toggleChat);
+
+// Send message
+function sendMessage() {
+  var message = chatInput.value.trim();
+  if (!message) return;
+
+  // Add user message
+  addMessage(message, "user");
+
+  // Clear input
+  chatInput.value = "";
+
+  // Generate bot response after a short delay
+  setTimeout(function() {
+    var response = getBotResponse(message);
+    addMessage(response, "bot");
+  }, 500);
+}
+
+chatSend.addEventListener("click", sendMessage);
+chatInput.addEventListener("keypress", function(e) {
+  if (e.key === "Enter") {
+    sendMessage();
+  }
+});
+
+// Add message to chat
+function addMessage(text, type) {
+  var messageDiv = document.createElement("div");
+  messageDiv.className = "message " + type;
+
+  var bubble = document.createElement("div");
+  bubble.className = "message-bubble";
+  bubble.textContent = text;
+
+  messageDiv.appendChild(bubble);
+  chatBody.appendChild(messageDiv);
+
+  // Auto-scroll to bottom
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+// Bot response logic
+function getBotResponse(userMessage) {
+  var message = userMessage.toLowerCase();
+
+  if (message.includes("hello")) {
+    return "Hello! Welcome to Cyber Connections. How can I assist you today?";
+  } else if (message.includes("services")) {
+    return getServicesInfo();
+  } else if (message.includes("training") || message.includes("courses") || message.includes("learn")) {
+    return getTrainingInfo();
+  } else if (message.includes("price") || message.includes("pricing") || message.includes("cost") || message.includes("rate")) {
+    return getPricingInfo();
+  } else {
+    return "I'm sorry, I didn't understand that. Can you please rephrase?";
+  }
+}
+
+// Get training information from the training section
+function getTrainingInfo() {
+  var trainingCards = document.querySelectorAll(".training .service-card");
+  if (!trainingCards || trainingCards.length === 0) {
+    return "We offer training in basic computer skills, Microsoft Office, internet usage, and more. Check our training section for details!";
+  }
+
+  var trainings = [];
+
+  for (var i = 0; i < trainingCards.length; i++) {
+    var card = trainingCards[i];
+    var title = card.querySelector(".service-card__title");
+    var text = card.querySelector(".service-card__text");
+
+    if (title && text) {
+      var trainingName = title.textContent.trim();
+      var description = text.textContent.trim();
+
+      if (trainingName && description) {
+        trainings.push(trainingName + ": " + description);
+      }
+    }
+  }
+
+  if (trainings.length > 0) {
+    return "Here are our training courses:\n" + trainings.join("\n\n");
+  } else {
+    return "We offer training in basic computer skills, Microsoft Office, internet usage, and more. Check our training section for details!";
+  }
+}
+
+// Get services information from the services section
+function getServicesInfo() {
+  var serviceCards = document.querySelectorAll(".services .service-card");
+  if (!serviceCards || serviceCards.length === 0) {
+    return "We offer fast internet, printing, scanning, and more at affordable rates. Check our services section for details!";
+  }
+
+  var services = [];
+
+  for (var i = 0; i < serviceCards.length; i++) {
+    var card = serviceCards[i];
+    var title = card.querySelector(".service-card__title");
+    var text = card.querySelector(".service-card__text");
+
+    if (title && text) {
+      var serviceName = title.textContent.trim();
+      var description = text.textContent.trim();
+
+      if (serviceName && description) {
+        services.push(serviceName + ": " + description);
+      }
+    }
+  }
+
+  if (services.length > 0) {
+    return "Here are our available services:\n" + services.join("\n\n");
+  } else {
+    return "We offer fast internet, printing, scanning, and more at affordable rates. Check our services section for details!";
+  }
+}
+
+// Get pricing information from the table
+function getPricingInfo() {
+  var pricingTable = document.querySelector(".pricing-table tbody");
+  if (!pricingTable) {
+    return "I'm sorry, I couldn't access the pricing information right now.";
+  }
+
+  var rows = pricingTable.querySelectorAll("tr");
+  var prices = [];
+
+  for (var i = 0; i < rows.length; i++) {
+    var cells = rows[i].querySelectorAll("td");
+    if (cells.length >= 2) {
+      var service = cells[0].textContent.trim();
+      var rate = cells[1].textContent.trim();
+      var notes = cells[2] ? cells[2].textContent.trim() : "";
+
+      if (rate !== "---") {
+        prices.push(service + ": " + rate + (notes ? " (" + notes + ")" : ""));
+      }
+    }
+  }
+
+  if (prices.length > 0) {
+    return "Here are our current prices:\n" + prices.join("\n");
+  } else {
+    return "I'm sorry, I couldn't find any pricing information.";
+  }
+}

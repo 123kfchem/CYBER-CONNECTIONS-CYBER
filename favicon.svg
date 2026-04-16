@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Background -->
+  <circle cx="16" cy="16" r="15" fill="#0c1222" stroke="#00d4ff" stroke-width="1"/>
+  
+  <!-- C Shape -->
+  <path d="M 22 8 A 8 8 0 0 0 8 16 A 8 8 0 0 0 22 24" 
+        fill="none" stroke="#00d4ff" stroke-width="2.5" stroke-linecap="round"/>
+  
+  <!-- WiFi Icon inside C -->
+  <!-- WiFi dot (center) -->
+  <circle cx="18" cy="20" r="1" fill="#00ff88"/>
+  
+  <!-- WiFi arc 1 (innermost) -->
+  <path d="M 16 18 A 2 2 0 0 1 20 18" 
+        fill="none" stroke="#00ff88" stroke-width="1.2" stroke-linecap="round"/>
+  
+  <!-- WiFi arc 2 (middle) -->
+  <path d="M 14.5 16.5 A 3.5 3.5 0 0 1 21.5 16.5" 
+        fill="none" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" opacity="0.8"/>
+  
+  <!-- Glow effect -->
+  <circle cx="16" cy="16" r="15" fill="none" stroke="#00d4ff" stroke-width="0.5" opacity="0.4" style="filter: blur(0.5px);"/>
+</svg>
