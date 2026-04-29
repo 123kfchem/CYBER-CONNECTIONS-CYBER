@@ -6,7 +6,7 @@
 :root {
   --font-body: "Source Sans 3", system-ui, sans-serif;
   --font-display: "Orbitron", sans-serif;
-  --color-bg: #0c1222;
+  --color-bg: #87cefa;
   --color-bg-elevated: #121a2e;
   --color-surface: #162238;
   --color-border: rgba(0, 212, 255, 0.2);
@@ -788,6 +788,11 @@ html[data-theme="light"] .hero__bg {
 /* ----- Sections ----- */
 .section {
   padding: clamp(3rem, 8vw, 5rem) 0;
+}
+
+.section.services,
+.section.training {
+  background: #d7eeff;
 }
 
 .section:nth-of-type(even) {
@@ -1701,4 +1706,21 @@ html[data-theme="light"] .footer__bottom-inner {
     max-width: 80%;
     font-size: 0.85rem;
   }
+}
+
+.service-logo {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 15px;
+    background: lightblue;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-logo img {
+    width: 145px;
+    height: 145px;
+    border-radius: 16px;
 }
