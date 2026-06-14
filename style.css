@@ -922,7 +922,6 @@ html[data-theme="light"] .hero__bg {
 }
 
 .logo-strip {
-  background: var(--color-bg-elevated);
   overflow: hidden;
   padding: 0;
   height: 100px;
@@ -933,15 +932,13 @@ html[data-theme="light"] .hero__bg {
 .logo-marquee {
   overflow: hidden;
   width: 100%;
-  display: flex;
-  align-items: center;
 }
 
 .logo-marquee__track {
   display: flex;
   align-items: center;
   gap: 3rem;
-  animation: marquee 22s linear infinite;
+  animation: marquee 18s linear infinite;
   width: max-content;
 }
 
