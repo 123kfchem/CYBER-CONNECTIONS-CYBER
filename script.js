@@ -160,7 +160,7 @@
     }
 
     if (typeof emailjs !== "undefined") {
-      emailjs.init("Nl5w6GX-dNijKGjN_");
+      emailjs.init("5zh7GCl5TfrikTrod");
     }
 
     form.addEventListener("submit", function (e) {
@@ -221,7 +221,7 @@
       };
 
       emailjs
-        .send("service_g39abnl", "template_fyq4iwr", templateParams)
+        .send("service_0h4dxhc", "template_4acs6ew", templateParams)
         .then(function () {
           if (formSuccess) {
             formSuccess.textContent = "Message sent successfully! We'll respond soon.";
