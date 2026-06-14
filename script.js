@@ -159,6 +159,10 @@
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
     }
 
+    if (typeof emailjs !== "undefined") {
+      emailjs.init("Nl5w6GX-dNijKGjN_");
+    }
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       if (formSuccess) {
@@ -191,11 +195,57 @@
         showError(messageError, "");
       }
 
-      if (ok && formSuccess) {
-        formSuccess.hidden = false;
-        form.reset();
-        formSuccess.focus();
+      if (!ok) {
+        return;
       }
+
+      if (typeof emailjs === "undefined") {
+        if (formSuccess) {
+          formSuccess.textContent = "Email service unavailable. Please try again later.";
+          formSuccess.hidden = false;
+        }
+        return;
+      }
+
+      var submitButton = form.querySelector('button[type="submit"]');
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+      }
+
+      var templateParams = {
+        from_name: nameVal,
+        from_email: emailVal,
+        subject: document.getElementById("subject").value.trim(),
+        message: msgVal,
+      };
+
+      emailjs
+        .send("service_g39abnl", "template_fyq4iwr", templateParams)
+        .then(function () {
+          if (formSuccess) {
+            formSuccess.textContent = "Message sent successfully! We'll respond soon.";
+            formSuccess.hidden = false;
+            formSuccess.focus();
+          }
+          form.reset();
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = "Send Message";
+          }
+        })
+        .catch(function (error) {
+          console.error("EmailJS Error:", error);
+          if (formSuccess) {
+            formSuccess.textContent = "Sending failed. Please try again later.";
+            formSuccess.hidden = false;
+            formSuccess.focus();
+          }
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = "Send Message";
+          }
+        });
     });
   }
 

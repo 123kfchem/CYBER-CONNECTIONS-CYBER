@@ -13,11 +13,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Background Video -->
-  <video autoplay muted loop id="background-video">
-    <source src="background.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+ 
 
   <!-- Preloader (hidden after page load) -->
   <div id="preloader" class="preloader" aria-hidden="true">
@@ -98,6 +94,13 @@
       </div>
     </section>
 
+    <!-- 2. Welcome strip -->
+    <section class="section welcome-strip" aria-label="Welcome to Cyber Connections">
+      <div class="welcome-strip__wrapper">
+        <p class="welcome-strip__text">WELCOME TO CYBER CONNECTIONS.. THE BEST ONLINE CYBER CAFE THE SERVICES AT YOUR FINGERTIPS.... WE GOT WHAT IT TAKES</p>
+      </div>
+    </section>
+
     <!-- 2. About -->
     <section class="section about" id="about">
       <div class="container">
@@ -136,29 +139,32 @@
             </div>
             <h3 class="service-card__title">Internet Browsing</h3>
             <p class="service-card__text">High-speed browsing for research, email, applications, and entertainment.</p>
+            <a href="#contact" class="btn btn--primary service-card__button">Apply Now</a>
           </article>
 
-          <a href='https://forms.gle/nqmfd5n1VKVqdHAK9' target="_blank" ">
           <article class="service-card reveal">
             <div class="service-card__icon" aria-hidden="true"><i class="fas fa-print"></i></div>
             <h3 class="service-card__title">Printing</h3>
             <p class="service-card__text">Black &amp; white and color prints for documents, photos, and coursework.</p>
+            <a href="#contact" class="btn btn--primary service-card__button">Apply Now</a>
           </article>
-          </a>
           <article class="service-card reveal">
             <div class="service-card__icon" aria-hidden="true"><i class="fas fa-camera"></i></div>
             <h3 class="service-card__title">Scanning</h3>
             <p class="service-card__text">Digitize papers to PDF or image files—perfect for records and submissions.</p>
+            <a href="#contact" class="btn btn--primary service-card__button">Apply Now</a>
           </article>
           <article class="service-card reveal">
             <div class="service-card__icon" aria-hidden="true"><i class="fas fa-copy"></i></div>
             <h3 class="service-card__title">Photocopying</h3>
             <p class="service-card__text">Quick, crisp copies for forms, notes, and handouts.</p>
+            <a href="#contact" class="btn btn--primary service-card__button">Apply Now</a>
           </article>
           <article class="service-card reveal">
             <div class="service-card__icon" aria-hidden="true"><i class="fas fa-keyboard"></i></div>
             <h3 class="service-card__title">Typing Services</h3>
             <p class="service-card__text">Professional typing and formatting for letters, CVs, and reports.</p>
+            <a href="#contact" class="btn btn--primary service-card__button">Apply Now</a>
           </article>
           <article class="service-card reveal">
             <div class="service-logo">
@@ -168,6 +174,7 @@
             <p class="service-card__text">DL Renewal <br> Smart DL Application <br> Vehicle Registration <br> Test Booking <br> Vehicle search <br> Vehicle inspection
               <br>Vehicle Transfer
             </p>
+            <a href="#contact" class="btn btn--primary service-card__button">Apply Now</a>
           </article>
           <article class="service-card reveal">
             <div class="service-logo">
@@ -175,31 +182,31 @@
             </div>
             <h3 class="service-card__title">HELB services</h3>
              <p class="service-card__text">Apply for HELB Loan <br>Apply for clearance Certificate</p>
+             <a href="#contact" class="btn btn--primary service-card__button">Apply Now</a>
           </article>
-          
           <article class="service-card reveal">
             <div class="service-logo">
               <img src="./logos/ecitizen-logo.png" alt="Service Logo">
             </div>
             <h3 class="service-card__title">eCitizen Services</h3>
              <p class="service-card__text">Apply for Passport <br>Temporary pasport <br> Good conduct <br> Company Registration <br> Business name Registration <br> Registration of marriages <br> Land Lease clearance</p>
+             <a href="#contact" class="btn btn--primary service-card__button">Apply Now</a>
           </article>
-
-
           <article class="service-card reveal">
             <div class="service-logo">
               <img src="./logos/kra-logo.png" alt="Service Logo">
             </div>
             <h3 class="service-card__title">KRA services</h3>
              <p class="service-card__text">New Application <br>Pin Retrieval <br> KRA filing returns <br> PAYE Returns <br> VAT Returns <br> House Income Rent  </p>
+             <a href="#contact" class="btn btn--primary service-card__button">Apply Now</a>
           </article>
-
           <article class="service-card reveal">
             <div class="service-logo">
               <img src="./logos/sha-logo.png" alt="Service Logo">
             </div>
             <h3 class="service-card__title">SHA services</h3>
              <p class="service-card__text">New Registartion <br>Adding Dependant</p>
+             <a href="#contact" class="btn btn--primary service-card__button">Apply Now</a>
           </article>
 
         </div>
@@ -518,40 +525,6 @@
     </div>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  <script>
-    (function () {
-  emailjs.init("Nl5w6GX-dNijKGjN_"); 
-})();
-    const form = document.getElementById("contactForm");
-
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  // Optional: basic validation check
-  if (!form.checkValidity()) {
-    form.reportValidity();
-    return;
-  }
-
-  const formData = {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    subject: document.getElementById("subject").value,
-    message: document.getElementById("message").value,
-  };
-
-  emailjs
-    .send("service_g39abnl", "template_fyq4iwr", formData)
-    .then(() => {
-      alert("Message sent successfully!");
-      form.reset();
-    })
-    .catch((error) => {
-      console.error("EmailJS Error:", error);
-      alert("Failed to send message. Try again.");
-    });
-});
-  </script>
 
   <!-- Floating Chatbot -->
   <div id="chatbot">

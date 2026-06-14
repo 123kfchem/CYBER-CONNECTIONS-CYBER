@@ -51,7 +51,10 @@ body {
   font-size: 1.05rem;
   line-height: 1.6;
   color: var(--color-text);
-  background: var(--color-bg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("./background/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   transition: background-color var(--transition), color var(--transition);
 }
 
@@ -787,16 +790,184 @@ html[data-theme="light"] .hero__bg {
 
 /* ----- Sections ----- */
 .section {
-  padding: clamp(3rem, 8vw, 5rem) 0;
+  padding: clamp(2rem, 4vw, 5rem) 0;
 }
 
-.section.services,
-.section.training {
-  background: #d7eeff;
+.section.services {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("./background/gallery.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: grid;
+}
+
+.welcome-strip__wrapper {
+  overflow: hidden;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 clamp(1rem, 2vw, 1.5rem);
+  position: relative;
+}
+
+.welcome-strip__text {
+  display: inline-block;
+  color: transparent;
+  background: linear-gradient(90deg, #34f4ff, #9a2dff, #2bb2ff, #c782ff, #34f4ff);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.18rem;
+  font-size: clamp(0.95rem, 2.2vw, 1rem);
+  text-shadow: 0 0 12px rgba(52, 244, 255, 0.35), 0 0 24px rgba(154, 45, 255, 0.20), 0 0 36px rgba(43, 178, 255, 0.15);
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.18em solid rgba(255, 255, 255, 0.8);
+  width: 0;
+  animation: typewriter 8s steps(120, end) infinite, neon-shift 4.5s ease-in-out infinite alternate;
+}
+
+.section.welcome-strip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.08), transparent 12%),
+    radial-gradient(circle at 80% 25%, rgba(180, 80, 255, 0.06), transparent 14%),
+    radial-gradient(circle at 50% 80%, rgba(36, 155, 255, 0.05), transparent 18%);
+  pointer-events: none;
+}
+
+.section.welcome-strip::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 20%, transparent 80%, rgba(255, 255, 255, 0.02));
+  pointer-events: none;
+}
+
+@keyframes typewriter {
+  0% {
+    width: 0;
+  }
+  60% {
+    width: 100%;
+  }
+  75% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes neon-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.section.welcome-strip {
+  background: #02040f;
+  padding: 0.75rem 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .section:nth-of-type(even) {
   background: var(--color-bg-elevated);
+}
+
+.section.training {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("./background/services.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Ensure services section background is applied after generic even/other rules */
+.section.services {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("./background/gallery.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.section.pricing {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("./background/pricing.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Contact section uses the pricing image as requested */
+.section.contact {
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("./background/pricing.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.logo-strip {
+  background: var(--color-bg-elevated);
+  overflow: hidden;
+  padding: 0;
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.logo-marquee {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.logo-marquee__track {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  animation: marquee 22s linear infinite;
+  width: max-content;
+}
+
+.logo-marquee__group {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.logo-marquee__item {
+  flex: 0 0 auto;
+}
+
+.logo-marquee__item img {
+  max-height: 80px;
+  width: auto;
+  display: block;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .section__header {
@@ -871,6 +1042,14 @@ html[data-theme="light"] .hero__bg {
 }
 
 /* About */
+.section.about {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("./background/About-us.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 .about__grid {
   display: grid;
   gap: 1.5rem;
@@ -878,7 +1057,10 @@ html[data-theme="light"] .hero__bg {
 }
 
 .about__card {
-  background: var(--color-surface);
+ background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("./background/gallery.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   padding: 1.75rem;
@@ -915,12 +1097,22 @@ html[data-theme="light"] .hero__bg {
 }
 
 .service-card {
-  background: var(--color-surface);
+ background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("./background/training-00.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   padding: 1.75rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+.service-card__button {
+  margin-top: auto;
 }
 
 .service-card:hover {
@@ -1042,7 +1234,10 @@ html[data-theme="light"] .hero__bg {
 .pricing-table {
   width: 100%;
   border-collapse: collapse;
-  background: var(--color-surface);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("./background/training-00.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   min-width: 480px;
 }
 
@@ -1131,7 +1326,10 @@ html[data-theme="light"] .hero__bg {
 
   .pricing-table tbody tr {
     display: block;
-    background: var(--color-surface);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("./background/training-00.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
     padding: 1.25rem;
@@ -1222,6 +1420,14 @@ html[data-theme="light"] .hero__bg {
 }
 
 /* Gallery */
+.section.gallery {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("./background/gallery.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 .gallery__grid {
   display: grid;
   gap: 1rem;
@@ -1283,7 +1489,10 @@ html[data-theme="light"] .gallery__item figcaption {
 }
 
 .contact__info {
-  background: var(--color-surface);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("./background/training-00.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   padding: 1.75rem;
@@ -1336,7 +1545,10 @@ html[data-theme="light"] .gallery__item figcaption {
 }
 
 .contact__form {
-  background: var(--color-surface);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("./background/training-00.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   padding: 1.75rem;
@@ -1395,7 +1607,10 @@ html[data-theme="light"] .gallery__item figcaption {
 
 /* Footer */
 .site-footer {
-  background: #050810;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("./background/gallery.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   border-top: 1px solid var(--color-border);
   padding-top: 3rem;
 }
@@ -1724,3 +1939,104 @@ html[data-theme="light"] .footer__bottom-inner {
     height: 145px;
     border-radius: 16px;
 }
+
+/* Responsive tweaks for common breakpoints */
+@media (max-width: 1024px) {
+  body {
+    background-attachment: scroll;
+  }
+
+  .container {
+    width: min(1040px, 94vw);
+  }
+
+  .section {
+    padding: clamp(1.5rem, 4vw, 3.5rem);
+  }
+
+  .welcome-strip__wrapper {
+    height: 48px;
+    padding-inline: 1rem;
+  }
+
+  .logo-strip {
+    height: 80px;
+  }
+
+  /* Ensure heavy fixed backgrounds become scroll on smaller viewports */
+  .section.services,
+  .section.training,
+  .section.gallery,
+  .section.pricing,
+  .section.contact {
+    background-attachment: scroll;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: clamp(1rem, 5vw, 2rem);
+  }
+
+  .section__header {
+    max-width: 92%;
+    margin-inline: auto;
+  }
+
+  .section__title {
+    font-size: clamp(1.25rem, 6vw, 1.75rem);
+  }
+
+  .services__grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  .service-logo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .service-logo img {
+    width: 115px;
+    height: 115px;
+  }
+
+  .welcome-strip__text {
+    font-size: clamp(0.85rem, 3.2vw, 0.95rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 96vw;
+  }
+
+  .section {
+    padding: 1rem 0;
+  }
+
+  .welcome-strip__wrapper {
+    height: 42px;
+  }
+
+  .welcome-strip__text {
+    font-size: 0.85rem;
+  }
+
+  .service-logo {
+    width: 96px;
+    height: 96px;
+  }
+
+  .service-logo img {
+    width: 90px;
+    height: 90px;
+  }
+
+  /* Reduce marquee/logo sizes */
+  .logo-strip {
+    height: 64px;
+  }
+}
+
