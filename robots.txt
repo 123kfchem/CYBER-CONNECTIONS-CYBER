@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cyberconnections.co.ke/sitemap.xml
+Sitemap: https://www.cyberconnections.co.ke/sitemap.xml
